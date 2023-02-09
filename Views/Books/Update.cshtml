@@ -1,0 +1,38 @@
+@model Books
+
+@{
+    ViewData["Title"] = "Books - Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Books" asp-action="UpdateBook">
+    <div class="mb-3">
+        <label for="id" class="form-label">Id</label>
+        <input asp-for="id" type="text" asp-validation-for="id" id="id" class="form-control" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input asp-for="title" type="text" asp-validation-for="title" id="title" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input asp-for="author" type="text" asp-validation-for="author" id="author" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="release-date" class="form-label">Release Date</label>
+        <input asp-for="release_date"type="date" asp-validation-for="release_date" id="release-date" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input asp-for="genre" type="text" asp-validation-for="genre" id="genre" class="form-control">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success">Update info</button>
+        <a asp-action="Index" asp-controller="Books" class="btn btn-secondary">Back to the list</a>
+    </div>
+</form>

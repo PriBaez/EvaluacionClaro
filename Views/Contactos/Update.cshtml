@@ -1,0 +1,33 @@
+@model Contactos
+
+@{
+    ViewData["Title"] = "Contactos - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Contactos" asp-action="UpdateContacto" >
+    <div class="mb-3">
+        <label for="id" class="form-label">id</label>
+        <input asp-for="id" type="text" asp-validation-for="id" id="id" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input asp-for="Nombre" type="text" asp-validation-for="Nombre" id="Nombre" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="Telefono" class="form-label">Telefono</label>
+        <input asp-for="Telefono" type="text" asp-validation-for="Telefono" id="Telefono" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="Correo" class="form-label">Correo</label>
+        <input asp-for="Correo"type="email" asp-validation-for="Correo" id="Correo" class="form-control">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success">Update info</button>
+        <a asp-action="Index" asp-controller="Books" class="btn btn-secondary">Back to the list</a>
+    </div>
+</form>

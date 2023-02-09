@@ -1,0 +1,52 @@
+@model Books
+
+@{
+    ViewData["Title"] = "Books - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <form asp-controller="Books" asp-action="About">
+        <div class="card-header">
+            
+            <h2>About this Book: <br> 
+            <h4>@Html.DisplayFor(book => book.title)</h4>
+            </h2>  
+            <hr>
+
+            <div class="card-body">
+                <div class="mb-3">
+                    <input asp-for="id" type="text" asp-validation-for="id" id="id" class="form-control" hidden readonly>
+                </div>
+                <p> 
+                    <b>ID: </b> 
+                    @Html.DisplayFor(book => book.id)
+                </p>
+
+                <p>
+                    <b>Title: </b> 
+                    @Html.DisplayFor(book => book.title)
+                </p>
+
+                <p>
+                    <b>Author:</b> 
+                    @Html.DisplayFor(book => book.author)
+                </p>
+
+                <p> 
+                    <b>Release Date:</b> 
+                    @Html.DisplayFor(book => book.release_date)
+                </p>
+
+                <p>
+                    <b>Genre: </b>
+                    @Html.DisplayFor(book => book.genre)
+                </p>
+            </div>
+
+                <div class="card-footer">
+                    <a asp-action="Index" asp-controller="Books" class="btn btn-secondary">Back to the list</a>
+                </div>
+    </form>
+
+</div>

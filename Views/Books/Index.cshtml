@@ -1,0 +1,44 @@
+@model List<Books>
+
+@{
+    ViewData["Title"] = "Books - List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-header">
+    <h1>Books in the library</h1>
+    <hr>
+    <a asp-controller="Books" asp-action="Create" class="btn btn-success">Add book</a> 
+</div>
+
+<div class="card-body">    
+     <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Release Date</th>
+                <th>Genre</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+               <tr>
+                <td>@item.id</td>
+                <td>@item.title</td>
+                <td>@item.author</td>
+                <td>@item.release_date.ToString("dd-MMM-yyyy")</td>
+                <td>@item.genre</td>
+                <td>
+                    <a asp-controller="Books" asp-action="Update" class="btn btn-warning" asp-route-bookid=@item.id>Update info</a>
+                    <a asp-controller="Books" asp-action="Delete" class="btn btn-danger" asp-route-bookid=@item.id>Discard book</a>
+                     <a asp-controller="Books" asp-action="About" class="btn btn-primary" asp-route-bookid=@item.id>About book</a>
+                </td>
+               </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,43 @@
+@model List<Contactos>
+
+@{
+    ViewData["Title"] = "Contactos - List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-header">
+    <h1>Contactos in the library</h1>
+    <hr>
+    <a asp-controller="Contactos" asp-action="Create" class="btn btn-success">Add book</a> 
+</div>
+
+<div class="card-body">    
+     <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Release Date</th>
+                <th>Genre</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+               <tr>
+                <td>@item.id</td>
+                <td>@item.Nombre</td>
+                <td>@item.Telefono</td>
+                <td>@item.Correo</td>
+                <td>
+                    <a asp-controller="Contactos" asp-action="Update" class="btn btn-warning" asp-route-bookid=@item.id>Update info</a>
+                    <a asp-controller="Contactos" asp-action="Delete" class="btn btn-danger" asp-route-bookid=@item.id>Discard contacto</a>
+                     <a asp-controller="Contactos" asp-action="About" class="btn btn-primary" asp-route-bookid=@item.id>About contacto</a>
+                </td>
+               </tr>
+            }
+        </tbody>
+    </table>
+</div>

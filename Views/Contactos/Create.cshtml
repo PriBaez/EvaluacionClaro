@@ -1,0 +1,23 @@
+@model Contactos
+
+@{
+    ViewData["Title"] = "Contactos - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Contactos" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input asp-for="Nombre" type="text" asp-validation-for="Nombre" id="Nombre" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="Telefono" class="form-label">Telefono</label>
+        <input asp-for="Telefono" type="text" asp-validation-for="Telefono" id="Telefono" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="Correo" class="form-label">Correo</label>
+        <input asp-for="Correo"type="email" asp-validation-for="Correo" id="Correo" class="form-control">
+    </div>
+</form>
